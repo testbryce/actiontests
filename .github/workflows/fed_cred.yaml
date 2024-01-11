@@ -1,0 +1,13 @@
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  login:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Azure Login
+        uses: Azure/login@v1.1
+        with:
+          client-id: 2023930d-2445-4d86-9995-fa122bfc7aaf
+          tenant-id: 56219acc-ec33-4d2d-8f0e-76156d8e8010
