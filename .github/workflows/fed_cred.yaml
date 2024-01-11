@@ -4,6 +4,9 @@ on:
   push:
     branches: ["main"]
 
+env:
+  val: "true"
+
 jobs:
   login:
     permissions: 
@@ -22,7 +25,8 @@ jobs:
         run: |
           az account show
           az group list
-      
+        if: ${{ env.val == "true" }}
+
       - name: Azure Logout & Cleanup
         uses: azure/CLI@v1
         with:
