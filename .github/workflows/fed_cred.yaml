@@ -25,7 +25,7 @@ jobs:
         run: |
           az account show
           az group list
-        if: ${{ env.val == "true" }}
+        if: ${{ env.val == 'true' }}
 
       - name: Azure Logout & Cleanup
         uses: azure/CLI@v1
