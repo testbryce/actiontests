@@ -3,19 +3,23 @@ name: Test fed creds
 on:
   push:
     branches: ["main"]
+    paths: [ ".github/workflows/fed_cred.yaml" ]
+  workflow_dispatch:
 
 env:
   val: "true"
 
+permissions: 
+  id-token: write
+  contents: read
+  
 jobs:
   login:
-    permissions: 
-      id-token: write
-      contents: read
     runs-on: ubuntu-latest
+    environment: prd
     steps:
       - name: Azure Login
-        uses: azure/login@v1
+        uses: azure/login@v2
         with:
           client-id: 2023930d-2445-4d86-9995-fa122bfc7aaf
           tenant-id: 56219acc-ec33-4d2d-8f0e-76156d8e8010
@@ -24,6 +28,7 @@ jobs:
       - name: Run az commands
         run: |
           az account show
+          az account list
           az group list
         if: ${{ env.val == 'true' }}
 
