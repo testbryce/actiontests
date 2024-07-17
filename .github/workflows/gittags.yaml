@@ -1,5 +1,5 @@
 name: git tags
-run-name: "${{ inputs.val }} ${{github.workflow}} ${{github.run_number}} ${{github.run_attempt}}"
+run-name: "Build and push ${{ github.event.inputs.tag }}"
   
 env:
   val: ";)"
@@ -7,10 +7,7 @@ on:
   push:
     paths: .github/workflows/gittags.yaml
   workflow_dispatch:
-    inputs:
-      val:
-        type: string
-        default: "Hello World"
+    
     
 jobs:
   thejob:
