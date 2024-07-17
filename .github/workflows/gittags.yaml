@@ -1,0 +1,12 @@
+name: git tags
+run-name: "${github.workflow} ${github.run_number} ${github.run_attempt}"
+
+on:
+  push:
+    paths: .github/workflows/gittags.yaml
+
+jobs:
+  thejob:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'Hello World'
