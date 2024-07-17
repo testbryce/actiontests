@@ -1,0 +1,12 @@
+name: openssl
+
+on:
+  push:
+    branches: ["main"]
+    paths: .github/workflows/openssl.yml
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - run: "echo '' | openssl s_client -showcerts -connect playwright.dev:443"
