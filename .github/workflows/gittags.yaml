@@ -1,5 +1,5 @@
 name: git tags
-run-name: "${github.workflow} ${github.run_number} ${github.run_attempt}"
+run-name: "${{github.workflow}} ${{github.run_number}} ${{github.run_attempt}}"
 
 on:
   push:
