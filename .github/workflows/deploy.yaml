@@ -1,4 +1,5 @@
 run-name: ${{inputs.version}}
+name: deploy!
 
 on:
   workflow_call:
