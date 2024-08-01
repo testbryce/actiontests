@@ -1,0 +1,12 @@
+name: myworkflow
+
+on:
+  push:
+    branches: main
+
+jobs:
+  deploy:
+    uses: ./.github/workflows/deploy.yaml
+    with:
+      version: 1.2.3
+    
