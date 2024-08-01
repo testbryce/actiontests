@@ -1,12 +1,10 @@
-run-name: ${{inputs.version}}
+run-name: "ref: ${{github.ref}} - refname: ${{github.ref_name}}"
 name: deploy!
 
 on:
-  workflow_call:
-    inputs:
-      version:
-        type: string
-
+  push:
+    tags: '*'
+    
 jobs:
   deploy:
     runs-on: ubuntu-latest
