@@ -1,4 +1,5 @@
 name: myworkflow
+run-name: renamed
 
 on:
   push:
