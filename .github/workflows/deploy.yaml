@@ -1,0 +1,13 @@
+run-name: ${{inputs.version}}
+
+on:
+  workflow_call:
+    inputs:
+      version:
+        type: string
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "deploying to ${{inputs.version}}"
