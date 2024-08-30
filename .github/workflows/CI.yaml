@@ -21,7 +21,16 @@ jobs:
         working-directory: src/HelloWorld
     
       - uses: paulhatch/semantic-version@v4
+        id: versioning
         with:
           tag_prefix: "v"
-
+        if: ${{ github.event_name != 'pull_request'}}
+        
+      - name: Tag Release
+        run: |
+          git tag ${{ steps.versioning.outputs.version_tag }}
+          echo "Added tag ${{ steps.versioning.outputs.version_tag }} for version ${{ steps.versioning.outputs.version }}
+          git push --tags
+          echo "Pushed tag ${{ steps.versioning.outputs.version_tag }} to origin" 
+        shell: bash
         if: ${{ github.event_name != 'pull_request'}}
