@@ -9,7 +9,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: dontet publish -c Release -o out
+
+      - name: Write GitHub context to log
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      
+        - run: dontet publish -c Release -o out
         working-directory: src/HelloWorld
       
       - name: Upload build artifact
@@ -22,5 +28,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4
-        name: HelloWorld_${{ github.ref_name }}
-        path: in
+        with:
+          name: HelloWorld_${{ github.ref_name }}
+          path: in
+
+      - run: dotnet HelloWorld.dll
+        working-directory: in
