@@ -16,11 +16,13 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
 
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - run: dotnet build
         working-directory: src/HelloWorld
     
-      - uses: paulhatch/semantic-version@v4
+      - uses: paulhatch/semantic-version@v5.4.0
         id: versioning
         with:
           tag_prefix: "v"
