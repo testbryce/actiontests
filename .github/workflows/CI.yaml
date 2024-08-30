@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # - run: echo ${!${{ github }}}
+      - uses: actions/checkout@v3
+
+      - run: dotnet build
+        working-directory: src/HelloWorld
+    
+      - uses: paulhatch/semantic-version@v4
+        with:
+          tag_prefix: "v"
+
+        if: ${{ github.event_name != 'pull_request'}}
