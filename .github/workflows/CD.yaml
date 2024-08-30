@@ -1,0 +1,26 @@
+name: Deploy
+run-name: Deploying ${{ github.ref_name }}
+
+on:
+  release:
+    types: [ published ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: dontet publish -c Release -o out
+        working-directory: src/HelloWorld
+      
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: HelloWorld_${{ github.ref_name }}
+          path: out
+        
+  deploy-prd:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        name: HelloWorld_${{ github.ref_name }}
+        path: in
