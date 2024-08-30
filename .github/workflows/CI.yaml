@@ -16,7 +16,7 @@ jobs:
       - run: dotnet build
         working-directory: src/HelloWorld
     
-      - uses: paulhatch
+      - uses: paulhatch/semantic-version@v4
         with:
           tag_prefix: "v"
 
