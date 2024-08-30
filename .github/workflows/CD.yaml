@@ -1,5 +1,5 @@
 name: Deploy
-run-name: Deploying ${{ github.ref_name }}
+run-name: Deploy ${{ github.ref_name }}
 
 on:
   release:
@@ -25,6 +25,7 @@ jobs:
           path: out
         
   deploy-prd:
+    environment: prd
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4
