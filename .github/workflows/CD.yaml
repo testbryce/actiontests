@@ -14,7 +14,9 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: echo "$GITHUB_CONTEXT"
-      
+
+      - uses: actions/checkout@v3
+
       - run: dontet publish -c Release -o out
         working-directory: src/HelloWorld
       
@@ -25,6 +27,7 @@ jobs:
           path: out
         
   deploy-prd:
+    needs: build
     environment: prd
     runs-on: ubuntu-latest
     steps:

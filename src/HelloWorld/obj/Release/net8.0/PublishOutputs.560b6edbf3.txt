@@ -1,0 +1,5 @@
+/home/bryce/dev/actiontests/src/HelloWorld/out/HelloWorld
+/home/bryce/dev/actiontests/src/HelloWorld/out/HelloWorld.dll
+/home/bryce/dev/actiontests/src/HelloWorld/out/HelloWorld.deps.json
+/home/bryce/dev/actiontests/src/HelloWorld/out/HelloWorld.runtimeconfig.json
+/home/bryce/dev/actiontests/src/HelloWorld/out/HelloWorld.pdb

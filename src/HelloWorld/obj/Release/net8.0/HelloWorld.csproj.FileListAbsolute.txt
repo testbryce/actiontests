@@ -1,0 +1,15 @@
+/home/bryce/dev/actiontests/src/HelloWorld/bin/Release/net8.0/HelloWorld
+/home/bryce/dev/actiontests/src/HelloWorld/bin/Release/net8.0/HelloWorld.deps.json
+/home/bryce/dev/actiontests/src/HelloWorld/bin/Release/net8.0/HelloWorld.runtimeconfig.json
+/home/bryce/dev/actiontests/src/HelloWorld/bin/Release/net8.0/HelloWorld.dll
+/home/bryce/dev/actiontests/src/HelloWorld/bin/Release/net8.0/HelloWorld.pdb
+/home/bryce/dev/actiontests/src/HelloWorld/obj/Release/net8.0/HelloWorld.GeneratedMSBuildEditorConfig.editorconfig
+/home/bryce/dev/actiontests/src/HelloWorld/obj/Release/net8.0/HelloWorld.AssemblyInfoInputs.cache
+/home/bryce/dev/actiontests/src/HelloWorld/obj/Release/net8.0/HelloWorld.AssemblyInfo.cs
+/home/bryce/dev/actiontests/src/HelloWorld/obj/Release/net8.0/HelloWorld.csproj.CoreCompileInputs.cache
+/home/bryce/dev/actiontests/src/HelloWorld/obj/Release/net8.0/HelloWorld.sourcelink.json
+/home/bryce/dev/actiontests/src/HelloWorld/obj/Release/net8.0/HelloWorld.dll
+/home/bryce/dev/actiontests/src/HelloWorld/obj/Release/net8.0/refint/HelloWorld.dll
+/home/bryce/dev/actiontests/src/HelloWorld/obj/Release/net8.0/HelloWorld.pdb
+/home/bryce/dev/actiontests/src/HelloWorld/obj/Release/net8.0/HelloWorld.genruntimeconfig.cache
+/home/bryce/dev/actiontests/src/HelloWorld/obj/Release/net8.0/ref/HelloWorld.dll
