@@ -15,7 +15,7 @@ jobs:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: echo "$GITHUB_CONTEXT"
       
-      - run: dontet publish -c Release -o out
+      - run: dotnet publish -c Release -o out
         working-directory: src/HelloWorld
       
       - name: Upload build artifact
