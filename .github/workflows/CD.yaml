@@ -2,16 +2,13 @@ name: Deploy
 run-name: Deploy ${{ github.ref_name }}
 
 on:
-  release:
-    types: [ published ]
+  push:
+    branches: main
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
       - name: Write GitHub context to log
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
@@ -19,18 +16,9 @@ jobs:
       - uses: actions/checkout@v3
 
       - run: printenv
-      
-      - run: dotnet publish -c Release -o out
-        working-directory: src/HelloWorld
-      
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: HelloWorld_${{ github.ref_name }}
-          path: ${{github.workspace}}/out
-        
+      - run: echo ${{ github.job.environment }}
+
   deploy-prd:
-    needs: build
     environment: prd
     runs-on: ubuntu-latest
     steps:
@@ -40,10 +28,12 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
 
       - run: printenv
-      - uses: actions/download-artifact@v4
-        with:
-          name: HelloWorld_${{ github.ref_name }}
-          path: in
 
-      - run: dotnet HelloWorld.dll
-        working-directory: in
+      - run: echo ${{ github.job.environment }}
+      # - uses: actions/download-artifact@v4
+      #   with:
+      #     name: HelloWorld_${{ github.ref_name }}
+      #     path: in
+
+      # - run: dotnet HelloWorld.dll
+      #   working-directory: in
