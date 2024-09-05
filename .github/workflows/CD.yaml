@@ -9,15 +9,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: Write GitHub context to log
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: echo "$GITHUB_CONTEXT"
-
       - uses: actions/checkout@v3
 
-      - run: dotnet publish -c Release -o ${{github.workspace}}/out
+      - run: printenv
+      
+      - run: dotnet publish -c Release -o out
         working-directory: src/HelloWorld
       
       - name: Upload build artifact
