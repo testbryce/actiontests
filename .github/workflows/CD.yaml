@@ -8,37 +8,35 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      output1: "Hello"
+      output2: "World"
     steps:
-      - name: Write GitHub context to log
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"
-      - uses: actions/checkout@v3
+      - run: |
+          echo "ASD='Hello World'" >> "$GITHUB_ENV"
+          echo $ASD
+      - run: echo ${{ env.ASD }}
 
-      - run: printenv
-      - run: echo "$MYJOBS"
-        env:
-          MYJOBS: ${{ toJSON(job) }}
 
-  deploy-prd:
-    environment: prd
-    runs-on: ubuntu-latest
-    steps:
-      - name: Write GitHub context to log
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"
+  # deploy-prd:
+  #   environment: prd
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Write GitHub context to log
+  #       env:
+  #         GITHUB_CONTEXT: ${{ toJSON(github) }}
+  #       run: echo "$GITHUB_CONTEXT"
 
-      - run: printenv
+  #     - run: printenv
 
-      - run: printenv
-      - run: echo "$MYJOBS"
-        env:
-          MYJOBS: ${{ toJSON(job) }}
-      # - uses: actions/download-artifact@v4
-      #   with:
-      #     name: HelloWorld_${{ github.ref_name }}
-      #     path: in
+  #     - run: printenv
+  #     - run: echo "$MYJOBS"
+  #       env:
+  #         MYJOBS: ${{ toJSON(job) }}
+  #     # - uses: actions/download-artifact@v4
+  #     #   with:
+  #     #     name: HelloWorld_${{ github.ref_name }}
+  #     #     path: in
 
-      # - run: dotnet HelloWorld.dll
-      #   working-directory: in
+  #     # - run: dotnet HelloWorld.dll
+  #     #   working-directory: in
