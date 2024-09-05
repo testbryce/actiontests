@@ -39,6 +39,7 @@ jobs:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: echo "$GITHUB_CONTEXT"
 
+      - run: printenv
       - uses: actions/download-artifact@v4
         with:
           name: HelloWorld_${{ github.ref_name }}
