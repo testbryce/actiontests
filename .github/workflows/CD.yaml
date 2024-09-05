@@ -18,9 +18,6 @@ jobs:
       - run: printenv
       - run: echo "$MYJOBS"
         env:
-          MYJOBS: ${{ toJSON(jobs) }}
-      - run: echo "$MYJOBS"
-        env:
           MYJOBS: ${{ toJSON(job) }}
 
   deploy-prd:
@@ -35,9 +32,6 @@ jobs:
       - run: printenv
 
       - run: printenv
-      - run: echo "$MYJOBS"
-        env:
-          MYJOBS: ${{ toJSON(jobs) }}
       - run: echo "$MYJOBS"
         env:
           MYJOBS: ${{ toJSON(job) }}
