@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - run: printenv
-      - run: echo ${{ github.job.environment }}
+      - run: echo ${{ job.status }}
 
   deploy-prd:
     environment: prd
@@ -29,7 +29,7 @@ jobs:
 
       - run: printenv
 
-      - run: echo ${{ github.job.environment }}
+      - run: echo ${{ job.status }}
       # - uses: actions/download-artifact@v4
       #   with:
       #     name: HelloWorld_${{ github.ref_name }}

@@ -1,0 +1,9 @@
+name: action
+description: try print environment
+
+
+runs:
+  using: composite
+  steps:
+    - run: echo ${{ job.environment }}
+      shell: bash
